@@ -1,0 +1,70 @@
+.reactorContainer {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+}
+
+.reactorRing {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border: 2px solid #00f7ff;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.reactorCore {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(circle, #00f7ff 0%, #0066cc 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 20px #00f7ff;
+}
+
+.reactorGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: 0 0 40px #00f7ff;
+  animation: glow 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes glow {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
