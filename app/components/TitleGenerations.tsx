@@ -3,12 +3,17 @@ import { useUser } from '@clerk/nextjs'
 import { useSchematicEntitlement } from '@schematichq/schematic-react';
 import React from 'react'
 import Usage from './Usage';
+import { useQuery } from 'convex/react';
+import { api } from '@/convex/_generated/api';
 
 function TitleGenerations({videoId}:{
     videoId: string
 }) {
   const {user}= useUser();
-  const titles:any = [];// To do 
+  const titles = useQuery(api.titles.list,{
+    videoId,
+    userId: user?.id ?? "", // Pass userId, handle potential null user
+  });
   const {value: isTitleGenerationEnabled} = useSchematicEntitlement(
     FeatureFlag.TITLE_GENERATION
   )
